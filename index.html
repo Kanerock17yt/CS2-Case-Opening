@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Tactical Case Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font for military tactical layout -->
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Top Live Drops Ticker -->
+    <div class="live-feed">
+        <div class="feed-title">LIVE DROPS</div>
+        <div id="liveTicker" class="feed-container"></div>
+    </div>
+
+    <div class="main-layout">
+        <!-- Left Sidebar: Wallet & Actions -->
+        <aside class="sidebar">
+            <div class="panel-header">TACTICAL WALLET</div>
+            <div class="wallet-card">
+                <span class="currency-symbol">$</span>
+                <span id="walletBalance">250.00</span>
+            </div>
+            <button class="btn btn-secondary" onclick="addFunds()">DEPOSIT FUNDS</button>
+            <div class="case-cost">Cost per open: <span class="gold">$2.50</span></div>
+            <button id="openBtn" class="btn btn-primary" onclick="spinCase()">OPEN CASE</button>
+
+            <!-- Inside <aside class="sidebar">, right above the <button id="openBtn"...> -->
+            <div class="toggle-container">
+                <label class="switch-label">
+                    <input type="checkbox" id="instantToggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-text">INSTANT OPEN</span>
+            </div>
+        </aside>
+
+        <!-- Main Display Arena -->
+        <main class="arena">
+            <div class="case-viewport-wrapper">
+                <div class="tactical-scanner"></div>
+                <div class="marker-top"></div>
+                <div class="marker-bottom"></div>
+                
+                <div class="spinner-viewport">
+                    <div id="itemStrip" class="item-strip"></div>
+                </div>
+            </div>
+
+            <!-- Dynamic Feedback Output -->
+            <div class="display-panel">
+                <div id="statusMessage" class="status-text">SYSTEM READY // SELECT ENGAGE</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bottom Section: Persistent Inventory Grid -->
+    <section class="inventory-section">
+        <div class="panel-header">USER STORAGE INVENTORY (<span id="invCount">0</span>)</div>
+        <div id="inventoryGrid" class="inventory-grid">
+            <div class="empty-notice">Your acquired weapons storage is currently empty.</div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
